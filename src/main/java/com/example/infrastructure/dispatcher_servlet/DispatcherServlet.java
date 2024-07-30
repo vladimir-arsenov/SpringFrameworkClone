@@ -1,5 +1,6 @@
-package com.example.infrastructure;
+package com.example.infrastructure.dispatcher_servlet;
 
+import com.example.infrastructure.ioc_container_and_beans.ApplicationContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -10,8 +11,8 @@ import java.io.IOException;
 public class DispatcherServlet extends HttpServlet {
 
     private ApplicationContext applicationContext;
-    private MappingProvider mappingProvider;
-    private HttpCallDispatcher httpCallDispatcher;
+    private HandlerMapping handlerMapping;
+    private HandlerAdapter handlerAdapter;
 
     // мы создаём applicationContext в init(), так как по спецификации сервлета
     // tomcat вызывает конструктор по умолчанию, чтобы инициализировать сервлет,
@@ -20,19 +21,19 @@ public class DispatcherServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         applicationContext = new ApplicationContext("com.example.configuration");
-        mappingProvider = new CommonMappingProvider(applicationContext);
-        httpCallDispatcher = applicationContext.getInstance(HttpCallDispatcher.class);
+        handlerMapping = new HandlerMappingImpl(applicationContext);
+        handlerAdapter = applicationContext.getInstance(HandlerAdapter.class);
     }
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        final var handler = mappingProvider.getMapping(req);
-        httpCallDispatcher.dispatch(handler, req, resp);
+        final var handler = handlerMapping.getHandler(req);
+        handlerAdapter.handle(handler, req, resp);
     }
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        final var handler = mappingProvider.getMapping(req);
-        httpCallDispatcher.dispatch(handler, req, resp);
+        final var handler = handlerMapping.getHandler(req);
+        handlerAdapter.handle(handler, req, resp);
     }
 }

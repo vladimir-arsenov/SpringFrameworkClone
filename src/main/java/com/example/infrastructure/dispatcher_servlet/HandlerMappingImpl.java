@@ -1,6 +1,6 @@
-package com.example.infrastructure;
+package com.example.infrastructure.dispatcher_servlet;
 
-import com.example.infrastructure.*;
+import com.example.infrastructure.ioc_container_and_beans.ApplicationContext;
 import jakarta.servlet.http.HttpServletRequest;
 
 import java.lang.reflect.Method;
@@ -8,20 +8,20 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CommonMappingProvider implements MappingProvider {
+public class HandlerMappingImpl implements HandlerMapping {
 
     private static final String BASE_PATH = "/support";
 
     private final ApplicationContext applicationContext;
     private final Map<Mapping, Handler> mapping2Handler = new HashMap<>();
 
-    public CommonMappingProvider(ApplicationContext applicationContext) {
+    public HandlerMappingImpl(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
         init();
     }
 
     @Override
-    public Handler getMapping(HttpServletRequest req) {
+    public Handler getHandler(HttpServletRequest req) {
         return mapping2Handler.get(new Mapping(req.getPathInfo().substring(BASE_PATH.length()), HttpMethod.valueOf(req.getMethod())));
     }
 

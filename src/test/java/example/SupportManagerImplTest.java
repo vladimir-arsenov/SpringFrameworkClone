@@ -1,6 +1,6 @@
 package example;
 
-import com.example.infrastructure.ApplicationContext;
+import com.example.infrastructure.ioc_container_and_beans.ApplicationContext;
 import com.example.business_logic.SupportManager;
 import com.example.business_logic.SupportPhrase;
 import org.junit.jupiter.api.Test;

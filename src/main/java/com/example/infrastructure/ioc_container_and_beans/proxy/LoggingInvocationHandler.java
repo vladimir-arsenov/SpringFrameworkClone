@@ -1,6 +1,4 @@
-package com.example.infrastructure;
-
-import com.example.infrastructure.Logged;
+package com.example.infrastructure.ioc_container_and_beans.proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

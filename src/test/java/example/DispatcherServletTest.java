@@ -1,6 +1,6 @@
 package example;
 
-import com.example.infrastructure.DispatcherServlet;
+import com.example.infrastructure.dispatcher_servlet.DispatcherServlet;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

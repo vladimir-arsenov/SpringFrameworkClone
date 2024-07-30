@@ -1,8 +1,6 @@
-package com.example.infrastructure;
+package com.example.infrastructure.ioc_container_and_beans;
 
-import com.example.infrastructure.Configuration;
-import com.example.infrastructure.Instance;
-import com.example.infrastructure.ProxyApplier;
+import com.example.infrastructure.ioc_container_and_beans.proxy.ProxyApplier;
 import org.reflections.Reflections;
 
 import java.lang.reflect.Method;
@@ -32,7 +30,7 @@ public class ApplicationContext {
                 Object configInstance = configClass.getDeclaredConstructor().newInstance();
                 configInstances.put(configClass, configInstance);
                 for (Method method : configClass.getDeclaredMethods()) {
-                    if (method.isAnnotationPresent(Instance.class)) {
+                    if (method.isAnnotationPresent(Bean.class)) {
                         instanceMethods.add(method);
                     }
                 }
@@ -49,7 +47,7 @@ public class ApplicationContext {
      */
     private void init() {
         instanceMethods.stream()
-                .sorted(Comparator.comparingInt((Method method) -> method.getAnnotation(Instance.class).priority()).reversed())
+                .sorted(Comparator.comparingInt((Method method) -> method.getAnnotation(Bean.class).priority()).reversed())
                 .forEach(method -> createInstance(method.getName(), method));
     }
 

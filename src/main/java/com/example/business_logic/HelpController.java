@@ -1,10 +1,9 @@
 package com.example.business_logic;
 
-import com.example.business_logic.SupportPhrase;
-import com.example.infrastructure.Controller;
-import com.example.infrastructure.HttpMethod;
-import com.example.infrastructure.Logged;
-import com.example.infrastructure.RequestMapping;
+import com.example.infrastructure.dispatcher_servlet.Controller;
+import com.example.infrastructure.dispatcher_servlet.HttpMethod;
+import com.example.infrastructure.ioc_container_and_beans.proxy.Logged;
+import com.example.infrastructure.dispatcher_servlet.RequestMapping;
 
 @Controller
 public interface HelpController {

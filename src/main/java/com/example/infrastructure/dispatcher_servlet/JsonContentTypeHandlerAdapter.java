@@ -1,23 +1,21 @@
-package com.example.infrastructure;
+package com.example.infrastructure.dispatcher_servlet;
 
-import com.example.infrastructure.CommonMappingProvider;
-import com.example.infrastructure.HttpCallDispatcher;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.util.stream.Collectors;
 
-public class JsonContentTypeHttpCallDispatcher implements HttpCallDispatcher {
+public class JsonContentTypeHandlerAdapter implements HandlerAdapter {
 
     private final ObjectMapper objectMapper;
 
-    public JsonContentTypeHttpCallDispatcher(ObjectMapper objectMapper) {
+    public JsonContentTypeHandlerAdapter(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
     }
 
     @Override
-    public void dispatch(CommonMappingProvider.Handler handler, HttpServletRequest request, HttpServletResponse resp) {
+    public void handle(HandlerMappingImpl.Handler handler, HttpServletRequest request, HttpServletResponse resp) {
         final Object result;
         resp.setContentType("application/json");
         try {

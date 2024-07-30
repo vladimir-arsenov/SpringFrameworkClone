@@ -1,8 +1,6 @@
-package com.example.infrastructure;
+package com.example.infrastructure.ioc_container_and_beans.proxy;
 
-import com.example.infrastructure.Controller;
-import com.example.infrastructure.Logged;
-import com.example.infrastructure.ProxyApplier;
+import com.example.infrastructure.dispatcher_servlet.Controller;
 
 import java.lang.reflect.Proxy;
 import java.util.Arrays;
