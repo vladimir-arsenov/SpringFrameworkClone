@@ -1,12 +1,11 @@
-package com.example;
+package com.example.infrastructure;
 
-import com.example.configuration.Configuration;
-import com.example.configuration.Instance;
+import com.example.infrastructure.Configuration;
+import com.example.infrastructure.Instance;
+import com.example.infrastructure.ProxyApplier;
 import org.reflections.Reflections;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
 import java.util.*;
 
 public class ApplicationContext {

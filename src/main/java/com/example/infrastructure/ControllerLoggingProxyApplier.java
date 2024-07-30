@@ -1,12 +1,14 @@
-package com.example;
+package com.example.infrastructure;
 
-import com.example.configuration.Logged;
+import com.example.infrastructure.Controller;
+import com.example.infrastructure.Logged;
+import com.example.infrastructure.ProxyApplier;
 
 import java.lang.reflect.Proxy;
 import java.util.Arrays;
 
 
-public class ControllerLoggingProxyApplier implements ProxyApplier{
+public class ControllerLoggingProxyApplier implements ProxyApplier {
     @Override
     public Object apply(Object object) {
         final var shouldProxyBeApplied = Arrays.stream(object.getClass().getInterfaces())

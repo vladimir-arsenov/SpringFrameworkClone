@@ -1,6 +1,6 @@
-package com.example;
+package com.example.infrastructure;
 
-import com.example.configuration.Logged;
+import com.example.infrastructure.Logged;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

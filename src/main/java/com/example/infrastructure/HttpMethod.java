@@ -1,4 +1,4 @@
-package com.example;
+package com.example.infrastructure;
 
 public enum HttpMethod {
     GET, POST

@@ -1,4 +1,4 @@
-package com.example;
+package com.example.business_logic;
 
 public interface SupportManager {
 

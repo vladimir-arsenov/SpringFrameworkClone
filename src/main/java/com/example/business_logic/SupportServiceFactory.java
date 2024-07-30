@@ -1,4 +1,4 @@
-package com.example;
+package com.example.business_logic;
 
 public class SupportServiceFactory {
 
@@ -16,7 +16,6 @@ public class SupportServiceFactory {
 
 
     // Так было изначально (но теперь мы хотим сразу создавать объект):
-
 
 //    // Так как каждый раз когда мы входим в функцию getInstance() мы дублируем копию ссылки INSTANCE в стек
 //    // в это время INSTANCE может изменить другой поток.

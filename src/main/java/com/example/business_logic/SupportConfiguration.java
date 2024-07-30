@@ -1,7 +1,7 @@
-package com.example.configuration;
+package com.example.business_logic;
 
+import com.example.infrastructure.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.example.*;
 
 @Configuration
 public class SupportConfiguration {

@@ -1,8 +1,8 @@
 package example;
 
-import com.example.ApplicationContext;
-import com.example.SupportManager;
-import com.example.SupportPhrase;
+import com.example.infrastructure.ApplicationContext;
+import com.example.business_logic.SupportManager;
+import com.example.business_logic.SupportPhrase;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.InvocationTargetException;

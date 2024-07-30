@@ -1,4 +1,4 @@
-package com.example;
+package com.example.business_logic;
 
 // Singleton - некоторые объекты содержат
 // много зависимостей, которые бьют по перформансу,

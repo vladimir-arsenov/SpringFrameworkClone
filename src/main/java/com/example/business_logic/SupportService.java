@@ -1,6 +1,6 @@
-package com.example;
+package com.example.business_logic;
 
-import com.example.configuration.Logged;
+import com.example.infrastructure.Logged;
 
 public interface SupportService {
     @Logged

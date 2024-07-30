@@ -1,12 +1,11 @@
-package com.example;
+package com.example.infrastructure;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.example.infrastructure.CommonMappingProvider;
+import com.example.infrastructure.HttpCallDispatcher;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.util.stream.Collectors;
 
 public class JsonContentTypeHttpCallDispatcher implements HttpCallDispatcher {
